@@ -1,14 +1,13 @@
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 
+llm = ChatOpenAI(model="gpt-4", temperature=0.2)
+
 def generate_code_review(code, file_name):
 	"""
 	Generates a code review using LangChain and OpenAI GPT.
 	"""
-	# LangChain Chat Model
-	llm = ChatOpenAI(model="gpt-4", temperature=0.2)
 
-	# Prompt 템플릿
 	prompt = ChatPromptTemplate.from_template("""
 	당신은 코드 리뷰 작업을 담당하는 최고의 시니어 소프트웨어 엔지니어입니다.
 	다음 파일에 대한 자세한 코드 리뷰를 제공해주세요.:
@@ -24,6 +23,7 @@ def generate_code_review(code, file_name):
 	- 코드 개선을 위한 제안.
 	- 가능한 버그나 이슈.
 	- 모범 사례와 최적화 권장 사항.
+	- 마지막줄에 Pull Request를 Approve하기에 적합하면 1 부적합하면 0 출력. 
 	""")
 
 	# 리뷰 생성
