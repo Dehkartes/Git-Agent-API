@@ -17,7 +17,7 @@ def get_pull_requests(github_token, repo_owner, repo_name, branch="main"):
 	else:
 		raise Exception(f"Failed to fetch pull requests: {response.status_code}, {response.text}")
 
-def approve_pull_request(repo_owner, repo_name, pr_number, github_token):
+def approve_pull_request(github_token, repo_owner, repo_name, pr_number):
 	"""
 	Approves a pull request using the GitHub API.
 	"""
