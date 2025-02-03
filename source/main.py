@@ -1,9 +1,9 @@
 from fastapi import FastAPI, Request, status
 from fastapi.responses import Response
-from allowIP import ALLOWED_IPS
+from source.allow_ip import ALLOWED_IPS
 import uvicorn
 
-from gitPipeline.router import router as gitRouter
+from git_pipeline.router import router as gitRouter
 
 app = FastAPI()
 
